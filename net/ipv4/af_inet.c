@@ -124,7 +124,7 @@
 
 static inline int current_has_network(void)
 {
-	return in_egroup_p(AID_INET) || capable(CAP_NET_RAW);
+	return in_egroup_p(KGIDT_INIT(AID_INET)) || capable(CAP_NET_RAW);
 }
 #else
 static inline int current_has_network(void)
@@ -1879,4 +1879,3 @@ static int __init ipv4_proc_init(void)
 #endif /* CONFIG_PROC_FS */
 
 MODULE_ALIAS_NETPROTO(PF_INET);
-
